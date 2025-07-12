@@ -1,7 +1,9 @@
-package com.swapplatform.repository;
+package SkillSwap.skill.repository;
 
-import com.swapplatform.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import SkillSwap.skill.model.User;
+
 public interface UserRepository extends JpaRepository<User, Long> {
+    User findByEmail(String email);
 }

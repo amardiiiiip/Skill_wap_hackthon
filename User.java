@@ -1,49 +1,47 @@
-package com.swapplatform.entity;
+package SkillSwap.skill.model;
 
-import javax.persistence.*;
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column
-private String role = "USER"; // Add to User.java
-
-    @Column(nullable = false)
     private String name;
+    private String email;
+    private String password;
+    private String location;
+    private String profilePhoto;
+    private String availability;
+    private String profileVisibility;
+    private String skillsOffered;
+    private String skillsWanted;
+    private double rating;
 
-    private String location; // Optional
-    private String profilePhoto; // Optional
-    private boolean isPublic = true;
-    private String availability; // e.g., "Weekends, Evenings"
-    private boolean isBanned = false;
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<SkillOffered> skillsOffered;
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<SkillWanted> skillsWanted;
-
-    // Getters and setters
+    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
     public String getLocation() { return location; }
     public void setLocation(String location) { this.location = location; }
     public String getProfilePhoto() { return profilePhoto; }
     public void setProfilePhoto(String profilePhoto) { this.profilePhoto = profilePhoto; }
-    public boolean isPublic() { return isPublic; }
-    public void setPublic(boolean isPublic) { this.isPublic = isPublic; }
     public String getAvailability() { return availability; }
     public void setAvailability(String availability) { this.availability = availability; }
-    public boolean isBanned() { return isBanned; }
-    public void setBanned(boolean banned) { isBanned = banned; }
-    public List<SkillOffered> getSkillsOffered() { return skillsOffered; }
-    public void setSkillsOffered(List<SkillOffered> skillsOffered) { this.skillsOffered = skillsOffered; }
-    public List<SkillWanted> getSkillsWanted() { return skillsWanted; }
-    public void setSkillsWanted(List<SkillWanted> skillsWanted) { this.skillsWanted = skillsWanted; }
+    public String getProfileVisibility() { return profileVisibility; }
+    public void setProfileVisibility(String profileVisibility) { this.profileVisibility = profileVisibility; }
+    public String getSkillsOffered() { return skillsOffered; }
+    public void setSkillsOffered(String skillsOffered) { this.skillsOffered = skillsOffered; }
+    public String getSkillsWanted() { return skillsWanted; }
+    public void setSkillsWanted(String skillsWanted) { this.skillsWanted = skillsWanted; }
+    public double getRating() { return rating; }
+    public void setRating(double rating) { this.rating = rating; }
 }

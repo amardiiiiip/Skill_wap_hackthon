@@ -1,72 +1,75 @@
-/* styles.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
+    background:linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
     color: #fff;
-    min-height: 100vh;
+     min-height: 120vh;
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
+    width: 80%;
     margin: 0 auto;
-    padding: 20px 0;
+    text-align: center;
 }
 
 .header {
-    @apply flex justify-between items-center py-4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
 }
 
-.header a, .header button {
-    @apply text-white mx-2 px-4 py-2 rounded;
+.header select, .header input {
+    padding: 5px;
+    margin-right: 10px;
 }
 
 .profile {
-    @apply flex justify-between items-center p-4 my-4 border-2 border-white rounded-lg bg-white/10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .profile-photo {
-    @apply w-12 h-12 bg-gray-600 rounded-full;
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    border-radius: 50%;
 }
 
 .skills, .rating {
-    @apply mx-4;
+    margin: 0 10px;
 }
 
 .request-btn {
-    @apply bg-teal-700 text-white px-4 py-2 rounded cursor-pointer;
+    background-color: #006d77;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .request-btn:disabled {
-    @apply bg-gray-600 cursor-not-allowed;
+    background-color: #333;
+    cursor: not-allowed;
 }
 
 .pagination {
-    @apply flex justify-center my-4;
+    margin: 20px 0;
 }
 
 .pagination button {
-    @apply bg-teal-700 text-white px-3 py-1 mx-1 rounded cursor-pointer;
-}
-
-/* Responsive Design */
-@media (max-width: 640px) {
-    .profile {
-        @apply flex-col text-center;
-    }
-    .profile-photo {
-        @apply mb-2;
-    }
-    .header {
-        @apply flex-col;
-    }
-    .header a, .header button {
-        @apply w-full text-center my-1;
-    }
+    background-color: #006d77;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
 }

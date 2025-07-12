@@ -1,39 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skill Swap Platform</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
+            color: #fff;
+            min-height: 120vh;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+        .header select, .header input {
+            padding: 5px;
+            margin-right: 10px;
+        }
+        .profile {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            padding: 10px;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .profile-photo {
+            width: 50px;
+            height: 50px;
+            background-color: #333;
+            border-radius: 50%;
+        }
+        .skills, .rating {
+            margin: 0 10px;
+        }
+        .request-btn {
+            background-color: #006d77;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .request-btn:disabled {
+            background-color: #333;
+            cursor: not-allowed;
+        }
+        .pagination {
+            margin: 20px 0;
+        }
+        .pagination button {
+            background-color: #006d77;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 1em;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <div class="header">
-        <h1 class="text-2xl font-bold">Skill Swap Platform</h1>
-        <div>
-            <a href="#availability" class="hover:bg-teal-600">Availability</a>
+    <div class="container">
+        <header class="header">
+            <h1>Skill Swap Platform</h1>
             <select>
+                <option>Availability</option>
                 <option>Available</option>
                 <option>Unavailable</option>
             </select>
-            <a href="login.html" class="hover:bg-teal-600">Login</a>
-        </div>
-    </div>
-    <div class="container">
-        <input type="text" placeholder="Search skills..." class="w-full p-2 mb-4 rounded">
-        <div id="userList">
-            <div class="profile">
-                <div class="profile-photo"></div>
-                <div class="skills">Marc Demo<br>Skills offered: JavaScript, Python<br>Skill wanted: Photoshop, Graphic designer</div>
-                <div class="rating">Rating: 3.5/5</div>
-                <button class="request-btn" onclick="requestSkill('Marc Demo')">Request</button>
+            <div class="navbar">
+                <a th:href="@{/index}" th:unless="${user == null}">Home</a>
+                <a th:href="@{/profile}" th:unless="${user == null}">Profile</a>
+                <a th:href="@{/swap}" th:unless="${user == null}">Swap Skill</a>
+                <a th:href="@{/login}" th:if="${user == null}">Login</a>
             </div>
-            <!-- Repeat for Mitchell, Joe Wills, etc. -->
+        </header>
+        <div th:each="user : ${users}" class="profile">
+            <div class="profile-photo"></div>
+            <div class="skills" th:text="${user.name}"></div>
+            <div class="skills" th:text="'Skills offered: ' + ${user.skillsOffered}"></div>
+            <div class="skills" th:text="'Skill wanted: ' + ${user.skillsWanted}"></div>
+            <button class="request-btn" th:onclick="'requestSkill(\'' + ${user.name} + '\')'">Request</button>
+            <div class="rating" th:text="'rating ' + ${user.rating} + '/5'"></div>
         </div>
         <div class="pagination">
-            <button>1</button> <button>2</button> <button>3</button> <button>4</button> <button>5</button> <button>6</button> <button>7</button> <button onclick="changePage('next')">></button>
+            <span th:text="${currentPage} + ' ' + ${totalPages}"></span>
+            <button th:onclick="'changePage(1)'">></button>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+        function requestSkill(name) {
+            alert(`Swap request sent to ${name}`);
+        }
+
+        function changePage(direction) {
+            alert(`Page changed by ${direction}`);
+        }
+    </script>
 </body>
 </html>
