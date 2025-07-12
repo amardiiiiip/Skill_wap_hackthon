@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Swap Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1 class="text-2xl font-bold">Skill Swap Platform</h1>
+        <div>
+            <a href="swap-request-accept.html" class="hover:bg-teal-600">Swap Request</a>
+            <a href="index.html" class="hover:bg-teal-600">Home</a>
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="text-xl mb-4">Swap Requests</h2>
+        <div class="mb-4">
+            <button class="request-btn mr-2">Pending</button>
+            <button class="request-btn mr-2">Accepted</button>
+            <button class="request-btn">Rejected</button>
+        </div>
+        <div id="swapRequests">
+            <div class="profile">
+                <div class="profile-photo"></div>
+                <div class="skills">Marc Demo<br>Skills Offered: JavaScript<br>Skill Wanted: Photoshop<br>Rating: 3.9/5</div>
+                <div>Status: Pending</div>
+                <div>
+                    <button class="request-btn mr-2" onclick="updateSwap(1, 'ACCEPTED')">Accept</button>
+                    <button class="request-btn" onclick="updateSwap(1, 'REJECTED')">Reject</button>
+                </div>
+            </div>
+            <div class="profile">
+                <div class="profile-photo"></div>
+                <div class="skills">name<br>Skills Offered: <br>Skill Wanted: <br>Rating: 3.9/5</div>
+                <div>Status: Rejected</div>
+                <div>
+                    <button class="request-btn mr-2" disabled>Accept</button>
+                    <button class="request-btn" disabled>Reject</button>
+                </div>
+            </div>
+        </div>
+        <div class="pagination">
+            <button><</button> <button>1</button> <button>2</button> <button>3</button> <button>></button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        async function updateSwap(id, status) {
+            const token = localStorage.getItem('token');
+            await fetch(`/swaps/${id}/status?status=${status}`, {
+                method: 'PATCH',
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            location.reload();
+        }
+    </script>
+</body>
+</html>

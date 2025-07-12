@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Swap Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1 class="text-2xl font-bold">Skill Swap Platform</h1>
+        <div>
+            <button class="hover:bg-teal-600">Save</button>
+            <button class="hover:bg-teal-600">Discard</button>
+            <a href="swap-request.html" class="hover:bg-teal-600">Swap Request</a>
+            <a href="index.html" class="hover:bg-teal-600">Home</a>
+            <button class="hover:bg-teal-600">Logout</button>
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="text-xl mb-4">Profile</h2>
+        <form id="profileForm" class="max-w-md mx-auto">
+            <div class="mb-2"><label>Name:</label> <input type="text" class="w-full p-2 rounded" required></div>
+            <div class="mb-2"><label>Location:</label> <input type="text" class="w-full p-2 rounded"></div>
+            <div class="mb-2">
+                <label>Skills Offered:</label>
+                <div><input type="text" class="w-full p-2 rounded mb-1" value="Graphic Design" readonly> <button class="request-btn">X</button></div>
+                <div><input type="text" class="w-full p-2 rounded mb-1" value="Video Editing" readonly> <button class="request-btn">X</button></div>
+                <div><input type="text" class="w-full p-2 rounded mb-1" value="Photoshop" readonly> <button class="request-btn">X</button></div>
+                <button type="button" class="request-btn">Add Skill</button>
+            </div>
+            <div class="mb-2">
+                <label>Skills Wanted:</label>
+                <div><input type="text" class="w-full p-2 rounded mb-1" value="Python" readonly> <button class="request-btn">X</button></div>
+                <div><input type="text" class="w-full p-2 rounded mb-1" value="JavaScript" readonly> <button class="request-btn">X</button></div>
+                <div><input type="text" class="w-full p-2 rounded mb-1" value="Manager" readonly> <button class="request-btn">X</button></div>
+                <button type="button" class="request-btn">Add Skill</button>
+            </div>
+            <div class="mb-2"><label>Availability:</label> <input type="text" class="w-full p-2 rounded" required></div>
+            <div class="mb-2">
+                <label>Profile:</label>
+                <label><input type="radio" name="privacy" value="public" checked> Public</label>
+                <label><input type="radio" name="privacy" value="private"> Private</label>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+/* styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
+    color: #fff;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.header {
+    @apply flex justify-between items-center py-4;
+}
+
+.header a, .header button {
+    @apply text-white mx-2 px-4 py-2 rounded;
+}
+
+.profile {
+    @apply flex justify-between items-center p-4 my-4 border-2 border-white rounded-lg bg-white/10;
+}
+
+.profile-photo {
+    @apply w-12 h-12 bg-gray-600 rounded-full;
+}
+
+.skills, .rating {
+    @apply mx-4;
+}
+
+.request-btn {
+    @apply bg-teal-700 text-white px-4 py-2 rounded cursor-pointer;
+}
+
+.request-btn:disabled {
+    @apply bg-gray-600 cursor-not-allowed;
+}
+
+.pagination {
+    @apply flex justify-center my-4;
+}
+
+.pagination button {
+    @apply bg-teal-700 text-white px-3 py-1 mx-1 rounded cursor-pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .profile {
+        @apply flex-col text-center;
+    }
+    .profile-photo {
+        @apply mb-2;
+    }
+    .header {
+        @apply flex-col;
+    }
+    .header a, .header button {
+        @apply w-full text-center my-1;
+    }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Swap Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1 class="text-2xl font-bold">Skill Swap Platform</h1>
+        <div>
+            <a href="#availability" class="hover:bg-teal-600">Availability</a>
+            <select>
+                <option>Available</option>
+                <option>Unavailable</option>
+            </select>
+            <a href="login.html" class="hover:bg-teal-600">Login</a>
+        </div>
+    </div>
+    <div class="container">
+        <input type="text" placeholder="Search skills..." class="w-full p-2 mb-4 rounded">
+        <div id="userList">
+            <div class="profile">
+                <div class="profile-photo"></div>
+                <div class="skills">Marc Demo<br>Skills offered: JavaScript, Python<br>Skill wanted: Photoshop, Graphic designer</div>
+                <div class="rating">Rating: 3.5/5</div>
+                <button class="request-btn" onclick="requestSkill('Marc Demo')">Request</button>
+            </div>
+            <!-- Repeat for Mitchell, Joe Wills, etc. -->
+        </div>
+        <div class="pagination">
+            <button>1</button> <button>2</button> <button>3</button> <button>4</button> <button>5</button> <button>6</button> <button>7</button> <button onclick="changePage('next')">></button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

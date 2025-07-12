@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Swap Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1 class="text-2xl font-bold">Skill Swap Platform</h1>
+        <div>
+            <a href="swap-request-accept.html" class="hover:bg-teal-600">Swap Request</a>
+            <a href="index.html" class="hover:bg-teal-600">Home</a>
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="text-xl mb-4">Swap Request for Marc Demo</h2>
+        <form id="swapForm" class="max-w-md mx-auto">
+            <div class="mb-2">
+                <label>Choose one of your offered skills:</label>
+                <select class="w-full p-2 rounded" required>
+                    <option value="">Select Skill</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Python">Python</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label>Choose one of their wanted skills:</label>
+                <select class="w-full p-2 rounded" required>
+                    <option value="">Select Skill</option>
+                    <option value="Photoshop">Photoshop</option>
+                    <option value="Graphic Designer">Graphic Designer</option>
+                </select>
+            </div>
+            <button type="submit" class="w-full request-btn">Submit</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
